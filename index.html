@@ -279,26 +279,25 @@ We then study the choice of visual encoder architectures, including two families
 <img src="./static/images/encoder_comparision_main_paper.jpg" alt="encoder comparision" width="950", style="margin: 20px 0;">
 </p>
 
+<h3 class="title is-3 has-text-centered" style="font-size: 16px;">Lesson 3: Tuning vision encoder does not provide significant help.</h3>
+
 <p>
-Next, results on the Stocks environment. The action space A is limited to combinations
-of 7 stocks: AMD, DIS, GME, GOOGL, META, NVDA and SPY. Unlike agriculture data where the
-context C are collected through USDA reports, we collect historical stock prices as the
-context for this problem. Each stock is presented with 24 monthly price in history. In
-preventing possible data leakage and promoting LLMs to use their common-sense knowledge
-in making decisions, when using gpt4-1106-preview as the LLM checkpoint, historical
-price between December 2021 to November 2023 are provided as the context C. These
-historical monthly prices are collected via Yahoo Finance by the authors.
+We next study the effect of tuning versus freezing the visual encoder. Below, we show the testing accuracy curves of tuning and freezing visual encoders. We find that compared with using a frozen encoder, tuning the visual encoder does not help the model learn low-level geometry relationships faster or better. In what follows, we will freeze the encoder for simplicity.
 </p>
 
 <p>
-The goal of the LLM agent is to choose which stock to invest on 2023-12-01 and sell on
-the last trading day of that month (2023-12-29) so that the return is maximized. In the
-figure below, we show that on average, DeLLMa-Top1 outperforms all baselines.
-DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking
-state-action pairs is still a challenging task.
+<img src="./static/images/freeze_unfreeze.jpg" alt="encoder tuning" width="950">
 </p>
 
-<img src="./static/images/scores_stock_acc_new.png" alt="stock scores" width="950", style="margin: 20px 0;">
+<h3 class="title is-3 has-text-centered" style="font-size: 16px;">Lesson 4: Curriculum learning unleashes full potential.</h3>
+
+<p>
+We train the model sequentially from simple to more complex shapes and compare testing accuracy just on hard level tasks. During training, we monitor the model's performance and dynamically adjust the distribution of training data (i.e., the curriculum stage) based on this performance.
+</p>
+
+<p>
+<img src="./static/images/curriculum_comparison.jpg" alt="curriculum learning" width="950">
+</p>
 
         </div>
       </div>
