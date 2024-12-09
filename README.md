@@ -1,4 +1,4 @@
-# DeLLMa.github.io
+# euclid-multimodal.github.io
 
 This is the official website for [Euclid: Supercharging Multimodal LLMs with Synthetic High-Fidelity Visual Descriptions](TODO).
 

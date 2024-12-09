@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DeLLMa: Decision Making Under Uncertainty with Large Language Models">
+  <meta name="keywords" content="Decision Theory, Large Lanaguge Models, GPT-4">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeLLMa: Decision Making Under Uncertainty with Large Language Models</title>
+
+<!-- Google Tag Manager -->
+<!-- <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-MFCT45H');</script> -->
+<!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/tifa.png"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFCT45H" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript> -->
+  <!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://arxiv.org/abs/2305.00586">
+            How does GPT-2 compute greater-than?
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2310.17086">
+            How Transformers learn in-context?
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2310.07972">
+            How to interpret diffusion models?
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2311.17946">
+            How to improve text-to-image alignment?
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2312.06550">
+            LLM360: Towards Fully Transparent Open-Source LLMs
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span style="color: rgb(153, 27, 30);"><b>DeLLMa</b></span>: Decision Making Under Uncertainty with Large Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ollieliu.com/">Ollie Liu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/usc.edu/deqingfu">Deqing Fu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://dyogatama.github.io/">Dani Yogatama</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://willieneis.github.io/">Willie Neiswanger</a><sup>1</sup>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1 </sup>University of Southern California</span>
+            <span class="author-block"><sup>* </sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2402.02392"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/DeLLMa/DeLLMa"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered" style="max-width:870px;">
+        Classical decision theory has helped humans make rational decisions for decades. Can it do the same for Large Language Models (LLMs)?
+        <span class="dnerf" style="color: rgb(153, 27, 30);">DeLLMa</span> (pronouced dilemma) is a Decision-making Large Language Model assistant, which utilizes the power of <span style="color: red;"><b>Large Language Models</b></span> and <span style="color: red;"><b>Classical Decision Theory</b></span> to help LLMs make decisions under uncertainty.
+      </h2>
+      <div style="text-align: center;"><br/>
+      <img src="./static/images/dellma-overview-horizontal-new.png" alt="dellma teaser" width="800" class="center">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="column content has-text-justified">
+          <p>
+          The potential of large language models (LLMs) as decision support tools is increasingly being explored in fields such as business, engineering, and medicine, which often face challenging tasks of decision-making under uncertainty. In this paper, we show that directly prompting LLMs on these types of decision-making problems can yield poor results, especially as the problem complexity increases. To aid in these tasks, we propose <span style="color: rgb(153, 27, 30);"><b>DeLLMa</b></span> (Decision-making Large Language Model assistant), a framework designed to enhance decision-making accuracy in uncertain environments. DeLLMa involves a multi-step reasoning procedure that integrates recent best practices in scaling inference-time reasoning, drawing upon principles from decision theory and utility theory, to provide an accurate and human-auditable decision-making process. We validate our procedure on multiple realistic decision-making environments, demonstrating that DeLLMa can consistently enhance the decision-making performance of leading language models, and achieve up to a 40% increase in accuracy over competing methods. Additionally, we show how performance improves when scaling compute at test time, and carry out human evaluations to benchmark components of DeLLMa.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Project Overview</h2>
+        <!--<div class="content has-text-justified">-->
+        <div class="column content">
+
+
+<p>
+Given a decision query from a user, our framework DeLLMa (Decision-making LLM assistant) aims to perform accurate decision making under uncertainty via inference-time reasoning methods.
+</p>
+
+<p>
+DeLLMa consists of four main steps:
+<ol>
+    <li>Identify relevant <i>unknown states</i> based on the problem description and user goals.</li>
+    <li>Forecast the values of the unknown states given in-context information.</li>
+    <li>Elicit a <i>utility function</i> that aligns with the user’s goals.</li>
+    <li>Use this utility function to identify the decision that maximizes <i>expected utility</i>.</li>
+</ol>
+</p>
+
+<p>
+We show the full DeLLMa algorithm below:
+</p>
+
+<p>
+<img src="./static/images/dellma-algorithm.png" alt="DeLLMa Algorithm" width="950">
+</p>
+
+<p>
+We can illustrate the decision tree used internally by DeLLMa for decision making under
+uncertainty. In the following figure, we show this decision tree for our agriculture
+planning environment (described below). DeLLMa uses these types of decision trees to
+compute and maximize the expected utility of each available action.
+</p>
+
+<p>
+<img src="./static/images/decision-tree.png" alt="agriculture decision tree" width="950">
+</p>
+
+
+<h3 class="title is-3 has-text-centered">Some Experimental Results</h3>
+
+<p>
+We illustrate DeLLMa below on two decision making under uncertainty problems:
+agriculture planning (<b>Agriculture</b>) and finance investing (<b>Stocks</b>).
+Both problems involve sizable degrees of uncertainty from diverse sources, and are
+representative of different data modalities (natural language and tabular) involved in
+decision making
+</p>
+
+<p>
+First, we show results on the Agriculture environment. We collect bi-annual reports
+published by the United States Department of Agriculture (USDA) that provide analysis of
+supply-and-demand conditions in the U.S. fruit markets. To emulate real-life farming
+timelines, we use the report published in September 2021 as context for planning the
+forthcoming agricultural year. We additionally supplement these natural language
+contexts with USDA issued price and yield statistics in California.
+</p>
+
+<p>
+We define the utility of planting a fruit as its price × yield reported in the
+forthcoming year. We identify 7 fruits — apple, avocado, grape, grapefruit, lemon,
+peach, and pear— that are both studied in the September 2021 report, and endowed with
+these statistics in 2021 and 2022. We create decision making problems by enumerating all
+possible combinations of availble fruits. For each decision-making instance, we use
+related sections of the USDA report and current-year price and yield statistics as
+context.  In the figure below, we show that all DeLLMa variants outperform baseline
+methods; DeLLMa-Pairs is the best, followed by Top1 and Naive. This result implies that
+the full ranking of state-action pairs is useful for utility elicitation.
+</p>
+
+<p>
+<img src="./static/images/scores_agriculture_acc_new.png" alt="agriculture scores" width="950", style="margin: 20px 0;">
+</p>
+
+<p>
+Next, results on the Stocks environment. The action space A is limited to combinations
+of 7 stocks: AMD, DIS, GME, GOOGL, META, NVDA and SPY. Unlike agriculture data where the
+context C are collected through USDA reports, we collect historical stock prices as the
+context for this problem. Each stock is presented with 24 monthly price in history. In
+preventing possible data leakage and promoting LLMs to use their common-sense knowledge
+in making decisions, when using gpt4-1106-preview as the LLM checkpoint, historical
+price between December 2021 to November 2023 are provided as the context C. These
+historical monthly prices are collected via Yahoo Finance by the authors.
+</p>
+
+<p>
+The goal of the LLM agent is to choose which stock to invest on 2023-12-01 and sell on
+the last trading day of that month (2023-12-29) so that the return is maximized. In the
+figure below, we show that on average, DeLLMa-Top1 outperforms all baselines.
+DeLLMa-Pairs is slightly worse than its Top1 counterpart, meaning that ranking
+state-action pairs is still a challenging task.
+</p>
+
+<img src="./static/images/scores_stock_acc_new.png" alt="stock scores" width="950", style="margin: 20px 0;">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{liu2024dellma,
+      title={{D}e{L}{L}{M}a: {D}ecision {M}aking {U}nder {U}ncertainty with {L}arge {L}anguage {M}odels},
+      author={Ollie Liu$^*$ and Deqing Fu$^*$ and Dani Yogatama and Willie Neiswanger},
+      year={2024},
+      eprint={2402.02392},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}</code></pre>
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
