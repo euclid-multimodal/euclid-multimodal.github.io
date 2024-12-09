@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Text Command</title>
+  <style>
+      /* Define a reusable class for the gradient */
+      .gradient-euclid {
+          background: linear-gradient(to right, rgb(65, 105, 225), rgb(128, 0, 128));
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+  </style>
+</head>
+<head>
   <meta charset="utf-8">
   <meta name="description"
         content="Euclid: Supercharging Multimodal LLMs with Synthetic High-Fidelity Visual Descriptions">
@@ -86,7 +100,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span><b>Euclid</b></span>: Supercharging Multimodal LLMs with Synthetic High-Fidelity Visual Descriptions</h1>
+          <h1 class="title is-1 publication-title"><span class="gradient-euclid"><b>Euclid</b></span>: Supercharging Multimodal LLMs with Synthetic High-Fidelity Visual Descriptions</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://saccharomycetes.github.io/">Jiarui Zhang</a><sup>1</sup>,
