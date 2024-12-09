@@ -259,7 +259,7 @@ We hypothesize the inability of today's MLLMs to effectively perceive basic geom
 Next, we will introduce our geometry dataset generation engine to overcome the lack of data, and then use generated dataset to study the optimal training strategy.
 </p>
 
-<h3 class="title is-3 has-text-centered">Lesson 1: Under the same training dataset, scaling LLM sizes does not lead to better performance.</h3>
+<h3 class="title is-3 has-text-centered" style="font-size: 16px;">Lesson 1: Under the same training dataset, scaling LLM sizes does not lead to better performance.</h3>
 
 <p>
 We first vary the sizes of LLMs, Qwen-2.5~\citep{qwen2.5} in a range of 0.5B, 1.5B, and 3B while keep other components consistent. The result is shown below. We do not observe an obvious trend that larger LLMs can learn such low-level visual perception task faster or better. Moving forward, we will use Qwen-2.5-1.5B to continue our exploration.
@@ -269,7 +269,7 @@ We first vary the sizes of LLMs, Qwen-2.5~\citep{qwen2.5} in a range of 0.5B, 1.
 <img src="./static/images/llm_size.jpg" alt="LLM size performance" width="950">
 </p>
 
-<h3 class="title is-3 has-text-centered">Lesson 2: CNN architecture performs better than ViT.</h3>
+<h3 class="title is-3 has-text-centered" style="font-size: 16px;">Lesson 2: CNN architecture performs better than ViT.</h3>
 
 <p>
 We then study the choice of visual encoder architectures, including two families of architectures: Vision Transformer (ViT) and ConvNeXT; as well as two visual representation learning objectives: language-supervised learning and self-supervised learning. ConvNeXT-Large shows superior learning performance with the vision transformers which are 3-5 times larger.
