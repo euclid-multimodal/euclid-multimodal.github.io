@@ -256,7 +256,17 @@ We hypothesize the inability of today's MLLMs to effectively perceive basic geom
   <li> The lack of high-fidelity geometric visual perception training data. </li>
   <li> The problem of their model architectures and training strategy. </li>
 </ol>
-Next, we will introduce our geometry dataset generation engine to overcome the lack of data, and then use generated dataset to study the optimal training strategy.
+</p>
+
+<p>
+<b>Overcoming the Lack of High-Fidelity Geometric Visual Perception Training Data</b>
+</p>
+<p>
+To provide sufficient high-fidelity training datasets, we develop a dataset generation engine to programmatically produce geometry shapes. Our geometry shape generation engine is built on AlphaGeometry. Given an input formal language describing a geometry shape, the geometry engine will first check the validity of the geometry shape. Then it will create numerical positions for all points following the restrictions given by the input. After the creation of all points, it will connect the line as specified in the input. To avoid inductive bias during training (e.g. point A is always on top of a triangle), letters are first picked from a letter pool (e.g. all 26 capital letters) and then randomly assigned to each point.
+</p>
+
+<p>
+Next, we will empirically explore the model architecture and training strategy to improve the performance of MLLMs on Geoperception.
 </p>
 
 <p>
