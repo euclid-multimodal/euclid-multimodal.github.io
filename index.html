@@ -179,7 +179,7 @@
         <div class="column content has-text-justified">
           <p>
             MLLMs have made rapid progress in recent years, yet continue to struggle with <i>low-level visual perception</i> (LLVP)---particularly the ability to accurately describe the geometric details of an image. This capability is crucial for applications in areas such as robotics, medical image analysis, and manufacturing. 
-            In this paper, we first introduce <i>Geoperception</i>, a benchmark designed to evaluate an MLLM’s ability to accurately transcribe 2D geometric information from an image. Using this benchmark, we demonstrate the limitations of leading MLLMs, and then conduct a comprehensive empirical study to explore strategies for improving their performance on geometric tasks. Our findings highlight the benefits of certain model architectures, training techniques, and data strategies, including the use of high-fidelity synthetic data and multi-stage training with a data curriculum. Notably, we find that a data curriculum enables models to learn challenging geometry understanding tasks which they fail to learn from scratch. Leveraging these insights, we develop <i>Euclid</i>, a family of models specifically optimized for strong low-level geometric perception. Although purely trained on synthetic multimodal data, Euclid shows strong generalization ability to novel geometry shapes. For instance, Euclid outperforms the best closed-source model, Gemini-1.5-Pro, by up to 58.56% on benchmark tasks and 10.65% across the tasks.            
+            In this paper, we first introduce <i>Geoperception</i>, a benchmark designed to evaluate an MLLM’s ability to accurately transcribe 2D geometric information from an image. Using this benchmark, we demonstrate the limitations of leading MLLMs, and then conduct a comprehensive empirical study to explore strategies for improving their performance on geometric tasks. Our findings highlight the benefits of certain model architectures, training techniques, and data strategies, including the use of high-fidelity synthetic data and multi-stage training with a data curriculum. Notably, we find that a data curriculum enables models to learn challenging geometry understanding tasks which they fail to learn from scratch. Leveraging these insights, we develop <span class="gradient-euclid"><b>Euclid</b></span>, a family of models specifically optimized for strong low-level geometric perception. Although purely trained on synthetic multimodal data, <span class="gradient-euclid"><b>Euclid</b></span> shows strong generalization ability to novel geometry shapes. For instance, <span class="gradient-euclid"><b>Euclid</b></span> outperforms the best closed-source model, Gemini-1.5-Pro, by up to 58.56% on benchmark tasks and 10.65% across the tasks.            
           </p>
           
         </div>
@@ -201,16 +201,14 @@
 
 
 <p>
-Given a decision query from a user, our framework DeLLMa (Decision-making LLM assistant) aims to perform accurate decision making under uncertainty via inference-time reasoning methods.
+We aim to study the challenges of LLVP in MLLMs, take steps to understand the root cause of their performance, and improve the models' capabilities in this area. Our contribution consists of a complete package of evaluation benchmarks, synthetic data generation pipeline, and a family of models specifically optimized for strong low-level geometric perception.
 </p>
-
 <p>
 DeLLMa consists of four main steps:
 <ol>
-    <li>Identify relevant <i>unknown states</i> based on the problem description and user goals.</li>
-    <li>Forecast the values of the unknown states given in-context information.</li>
-    <li>Elicit a <i>utility function</i> that aligns with the user’s goals.</li>
-    <li>Use this utility function to identify the decision that maximizes <i>expected utility</i>.</li>
+  <li> <b>Geoperception Benchmark</b>: We introduce a new benchmark dataset, <i>Geoperception</i>, derived from the Geometry-3K corpus, specifically designed to evaluate MLLMs' ability to accurately perceive surface-level geometric information without requiring complex inference or reasoning. Our benchmark reveals shortcomings in precise geometric perception across all leading vision-language MLLMs, both closed and open-source. </li>
+  <li> <b>Empirical Study and Synthetic Data Engine</b>: To investigate the root cause of this performance, we conduct a detailed empirical exploration of MLLM architecture and training strategies. To aid in our investigation, we develop a synthetic data engine capable of generating high-fidelity visual descriptions of geometric elements. This study leads to key insights, such as the importance of certain architectural choices and the use of curriculum-based, multi-stage training with progressively more complex visual descriptions for improving low-level visual perception.  </li>
+  <li> <b>Euclid Model</b>: Leveraging the insights from our exploration and our synthetic data engine, we train <span class="gradient-euclid"><b>Euclid</b></span>, a series of MLLMs tailored for high-quality geometric LLVP. Although purely trained on synthetic multimodal data with simple geometry shapes, <span class="gradient-euclid"><b>Euclid</b></span> generalizes strongly to the real-world geometry images from Geoperception benchmark, for instance, outperforming the best closed-source model, Gemini-1.5-Pro, by up to 58.56% on certain benchmark tasks and 10.65% across the tasks. </li>
 </ol>
 </p>
 
